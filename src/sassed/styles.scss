@@ -1,0 +1,497 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+$orange: hsl(26, 100%, 55%);
+$pale_orange: hsl(25, 100%, 94%);
+$dark_blue: hsl(220, 13%, 13%);
+$dGray_blue: hsl(219, 9%, 45%);
+$gray_blue: hsl(220, 14%, 75%);
+$light_gray: hsl(223, 64%, 98%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$teal: #64ffda;
+
+// General styles
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  color: $dGray_blue;
+}
+
+p {
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1300px !important;
+  margin: auto;
+  background-color: $white;
+}
+
+.bold {
+  font-weight: 700;
+}
+// Navbar styles
+
+.nav {
+  font-size: 0.95rem;
+  position: relative;
+  padding: 1rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:before {
+    content: "";
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 97%;
+    border-bottom: solid 1px $gray_blue;
+  }
+  .leftNav {
+    display: flex;
+    & > .logo {
+      .menu-icon {
+        margin-right: 1rem;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      margin: 0 2rem;
+      // Make logo fade away on hover / get rid of border on the element
+      & > a {
+        padding: 0;
+        display: inline-block;
+        border-bottom: none !important;
+        opacity: 1;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    & > .navList {
+      display: flex;
+      align-items: center;
+
+      & a {
+        border-bottom: solid 2px transparent;
+        transition: border-bottom 0.3s;
+        &:hover {
+          border-bottom: solid 2px $orange;
+        }
+      }
+    }
+  }
+
+  .rightNav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .profilePic {
+      max-height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        border: 2px solid $orange;
+      }
+    }
+    .cart {
+      margin: 0 2rem;
+      cursor: pointer;
+    }
+    .goods {
+      position: relative;
+      & > span {
+        display: inline;
+        position: absolute;
+        padding: 1px 7px;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        background-color: $orange;
+        color: $white;
+        top: -10px;
+        left: 50%;
+      }
+    }
+    // Cart Box
+    .cartBox {
+      display: block;
+      background-color: $white;
+      width: 380px;
+      height: 270px;
+      position: absolute;
+      top: 55px;
+      left: -250px;
+      box-shadow: 0 40px 50px 0 $gray_blue;
+      border-radius: 10px;
+      z-index: 20;
+
+      .upperPart {
+        border-bottom: 1px solid $dGray_blue;
+        height: 25%;
+        width: 100%;
+        .cartName {
+          font-weight: 700;
+          padding: 1.5rem 0 1.5rem 1rem;
+        }
+      }
+      .lowerPart {
+        // overflow: scroll;
+        width: 100%;
+        height: 75%;
+        padding: 0.9rem 1.5rem 1.3rem;
+        .bucket {
+          width: 100%;
+          height: 100%;
+          .summary {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+
+            // justify-content: center;
+            .thumbnail {
+              display: inline-block;
+              max-width: 50px;
+              max-height: 50px;
+              border-radius: 6px;
+            }
+            .desc {
+              display: flex;
+              flex-direction: column;
+              padding: 0 0.7rem;
+              line-height: 1.6rem;
+            }
+            .deleteIcon {
+              display: block;
+              padding: 0 1rem;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+          & > .empty-warning {
+            width: 100%;
+            text-align: center;
+          }
+        }
+        .checkout {
+          text-align: center;
+          color: $white;
+          margin-top: 1.5rem;
+          display: block;
+          width: 100%;
+          padding: 1rem;
+          background-color: $orange;
+          border-radius: 6px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Grid-Item
+.grid-item {
+  padding: 5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 44% 44%;
+  grid-gap: 4rem;
+  justify-content: space-between;
+  // grid-template-rows: 50vh;
+  .grid-gallery {
+    img {
+      border-radius: 15px;
+    }
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 2rem;
+    // grid-template-columns: repeat(4, 1fr); being set dynamically in Gallery.js
+
+    & > .big-image {
+      // grid-column: 1 / span 4; being set dynamically in Gallery.js
+      width: 100%;
+      height: 100%;
+      &:hover {
+        cursor: pointer;
+      }
+      & > img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    & > .small-image {
+      min-width: 75px;
+      min-height: 80px;
+      max-width: 125px;
+      max-height: 90px;
+      & img {
+        height: 100%;
+        width: 100%;
+        &:hover {
+          opacity: 0.7;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// Description
+.description {
+  padding: 2.5rem 1rem;
+  .companyName {
+    color: $orange;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 3;
+  }
+  .title {
+    font-size: 3rem;
+    padding-bottom: 1.5rem;
+  }
+  .description-text {
+    line-height: 1.7;
+    color: $dGray_blue;
+    padding-bottom: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .price {
+    padding-bottom: 2rem;
+    font-weight: 700;
+    & > .firstLine {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .discount {
+      padding: 4px 6px;
+      margin-left: 1.3rem;
+      background-color: $pale_orange;
+      color: $orange;
+      font-size: 1rem;
+      vertical-align: middle;
+      font-weight: 700;
+      border-radius: 10px;
+    }
+    & > .secondLine {
+      font-size: 1.1rem;
+      color: $gray_blue;
+      text-decoration: line-through;
+    }
+  }
+}
+
+// Add to cart Button Component
+.buttons {
+  display: flex;
+  align-items: center;
+  img,
+  span {
+    display: inline-block;
+  }
+  .change-value {
+    height: 30px;
+    padding: 1.6rem 1rem;
+    margin-right: 1rem;
+    background-color: $light_gray;
+    display: flex;
+    flex-grow: 3;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    & > img {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  .addBtn {
+    font-weight: 700;
+    flex-grow: 5;
+    &:hover {
+      opacity: 0.7;
+    }
+    & > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $orange;
+      padding: 1.6rem 0;
+      border-radius: 10px;
+      color: $white;
+      height: 30px;
+    }
+    & img {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// Lightbox
+.lightbox {
+  background-color: rgba(0, 0, 0, 0);
+  z-index: -10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 101vh;
+  width: 101vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  & > .lightbox-flex {
+    z-index: 15;
+    // opacity: 1;
+    // width: 100%;
+    width: 35vw;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .lightbox-big-image {
+      position: relative;
+      margin-bottom: 2rem;
+      width: 100%;
+      // height: 100%;
+      & img {
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .lightbox-flex-small-image {
+      // height: 75%;
+      // width: 75%;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 1rem;
+      & > .small-image {
+        position: relative;
+      }
+      & img {
+        border-radius: 15px;
+        margin: 0 0.55rem;
+        width: 90%;
+        height: 70%;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      & .backing {
+        border-radius: 15px;
+        z-index: -1;
+        display: block;
+        margin: 0 0.55rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $white;
+        width: 90%;
+        height: 70%;
+      }
+    }
+    & > .closeLightbox {
+      width: 17px;
+      height: 17px;
+      margin-bottom: 1rem;
+      display: block;
+      align-self: flex-end !important;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    // Arrows
+    .arrow-wrapper-right,
+    .arrow-wrapper-left {
+      cursor: pointer;
+
+      z-index: 30;
+      background-color: none;
+
+      width: 9% !important;
+      height: 9% !important;
+      position: absolute;
+      border-radius: 50%;
+      &:hover + .arrowRight + span,
+      &:hover + .arrowLeft + span {
+        background-color: $teal;
+      }
+    }
+
+    .arrow-wrapper-left {
+      left: -5%;
+      top: 47%;
+    }
+    .arrow-wrapper-right {
+      right: -5%;
+      top: 47%;
+    }
+
+    .arrowRight,
+    .arrowLeft {
+      cursor: pointer;
+      z-index: 25;
+      width: 3% !important;
+      height: 3% !important;
+      position: absolute;
+      & + span {
+        z-index: 12;
+        display: block;
+        background-color: $white;
+        width: 9% !important;
+        height: 9% !important;
+        position: absolute;
+        border-radius: 50%;
+      }
+    }
+    .arrowLeft {
+      left: -2.5%;
+      top: 50%;
+      & + span {
+        left: -5%;
+        top: 47%;
+      }
+    }
+    .arrowRight {
+      right: -2.5%;
+      top: 50%;
+      & + span {
+        right: -5%;
+        top: 47%;
+      }
+    }
+  }
+}
+
+@import "media";
+@import "hamburger";
+@import "carousel";

@@ -1,0 +1,93 @@
+.carousel-container {
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100vw;
+  height: 500px;
+  //   min-height: 250px;
+  .carousel-list {
+    transition: transform 0.3s;
+    // width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    .carousel-item {
+      // position: relative;
+      // display: inline-block;
+      & > img {
+        // object-fit: fill;
+        display: block;
+        height: 100%;
+        width: 100vw;
+      }
+    }
+  }
+}
+
+// Arrows
+.arrow-wrapper-right,
+.arrow-wrapper-left {
+  cursor: pointer;
+
+  z-index: 30;
+  background-color: none;
+
+  width: 9% !important;
+  height: 9% !important;
+  position: absolute;
+  border-radius: 50%;
+  &:hover + .arrowRight + span,
+  &:hover + .arrowLeft + span {
+    background-color: $teal;
+  }
+}
+
+.arrow-wrapper-left {
+  left: 7%;
+  top: 47%;
+}
+.arrow-wrapper-right {
+  right: 7%;
+  top: 47%;
+}
+
+.arrowRight,
+.arrowLeft {
+  cursor: pointer;
+  z-index: 15;
+  width: 3% !important;
+  max-height: 3% !important;
+  position: absolute;
+  & + span {
+    z-index: 12;
+    display: block;
+    background-color: $white;
+    width: 9% !important;
+    height: 9% !important;
+    position: absolute;
+    border-radius: 50%;
+  }
+}
+.arrowLeft {
+  left: 10%;
+  top: 50%;
+  & + span {
+    left: 7%;
+    top: 47%;
+  }
+}
+.arrowRight {
+  right: 10%;
+  top: 50%;
+  & + span {
+    right: 7%;
+    top: 47%;
+  }
+}
+
+.gallery {
+  overflow: hidden;
+  position: inherit;
+  width: 100%;
+  height: 100%;
+}

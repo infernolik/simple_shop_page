@@ -1,0 +1,46 @@
+.backdrop {
+  position: absolute;
+  height: 101vh;
+  width: 101vw;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: -50;
+  transition: all 0.4s;
+}
+.hamburger-menu {
+  z-index: 100;
+  background-color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 101vh;
+  width: 60vw;
+  transform: translateX(-200vw);
+  transition: all 0.4s;
+  .hamburger-inner {
+    padding: 1rem;
+    .closeHamburger {
+      display: block;
+      margin-bottom: 3rem;
+      padding-left: 1rem;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .hamburger-navList {
+      & li {
+        padding-bottom: 1rem;
+      }
+      & a {
+        border-bottom: solid 2px transparent;
+        transition: border-bottom 0.3s;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $black;
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+}

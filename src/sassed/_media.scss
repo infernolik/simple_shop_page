@@ -1,0 +1,64 @@
+@media (max-width: 1660px) {
+  .lightbox {
+    & > .lightbox-flex {
+      width: 45vw;
+      height: 55vh;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .lightbox {
+    & > .lightbox-flex {
+      width: 45vw;
+      height: 30vh;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .lightbox {
+    & > .lightbox-flex {
+      width: 50vw;
+      height: 37vh;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .lightbox {
+    & > .lightbox-flex {
+      width: 55vw;
+      height: 50vh;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-item {
+    padding: 5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    .rightNav {
+      position: static;
+      .cartBox {
+        width: 350px;
+        height: 270px;
+        top: 70px;
+        left: 2%;
+      }
+    }
+  }
+}
